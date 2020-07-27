@@ -14,7 +14,7 @@ import datetime
 
 
 Blueprints=Blueprint('Blueprints',__name__,template_folder='templates',static_folder='static')
-UPLOAD_FOLDER = 'static/Uploaded_images'
+UPLOAD_FOLDER = 'http://localhost:5000/static/Uploaded_images'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 Bcrypt=Bcrypt()
 
@@ -117,7 +117,6 @@ def AddCar():
         energie = request.form["energie"]
         boite = request.form["boite"]
         description = request.form["description"]
-        print(request.files)
         files = request.files.getlist("file")
         for i in files:
             photo_list=photo_list+i.filename+','
