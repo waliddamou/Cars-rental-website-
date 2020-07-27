@@ -14,7 +14,7 @@ import datetime
 
 
 Blueprints=Blueprint('Blueprints',__name__,template_folder='templates',static_folder='static')
-UPLOAD_FOLDER = '/var/www/FlaskApp/FlaskApp/auto/static/Uploaded_images'
+UPLOAD_FOLDER = 'static/Uploaded_images'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 Bcrypt=Bcrypt()
 
