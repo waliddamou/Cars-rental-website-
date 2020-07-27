@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+		 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <style>
+  /* Make the image fully responsive */
+  .carousel-inner img {
+    width: 100%;
+    height: 100%;
+  }
+  </style>		
+		<title>Laib Auto | About</title>
+		
+		<!-- Loading third party fonts -->
+		<link href="http://fonts.googleapis.com/css?family=Titillium+Web:300,400,700|" rel="stylesheet" type="text/css">
+		<link href="{{url_for('static',filename='fonts/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+
+		<!-- Loading main css file -->
+		<link rel="stylesheet" href="{{url_for('static',filename='style.css') }}">
+		
+
+	</head>
+
+
+	<body>
+		
+		<div id="site-content">
+			
+			<header class="site-header">
+				<div class="container">
+					<a id="branding" href="index.html">
+						<img src="{{url_for('static',filename='images/test3.png') }}" style="height: 50px,width:50px" alt="Company Logo" class="logo">
+						<h1 class="site-title" style="color: yellow">Laib<span>Auto</span></h1>
+					</a>
+
+					<nav class="main-navigation">
+						<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
+						<ul class="menu">
+							<li class="menu-item"><a href="/">Accueil</a></li>
+							<li class="menu-item"><a href="{{url_for('.OurCars')}}">Nos Voitures</a></li>
+							<li class="menu-item"><a href="{{url_for('.About')}}">A Propos</a></li>
+							<li class="menu-item"><a href="{{url_for('.ContactUs')}}">Contact</a></li>
+							<li class="menu-item"><a href="{{url_for('.login')}}">Connexion</a></li>
+						</ul>
+					</nav>
+					<nav class="mobile-navigation"></nav>
+				</div>
+			</header>
+			<main class="main-content text-center">
+				<div class="container text-center">
+					{% set list1=cars.Photos.split(',') %}
+						    
+						<div id="demo" class="carousel slide" data-ride="carousel">
+
+						  <!-- Indicators -->
+						  <ul class="carousel-indicators">
+						  	{% for i in range(list1| length) %}
+
+						  <li data-target="#demo" data-slide-to="{{i}}" {% if i == 0 %} class="active" {% endif %}></li>
+						    
+						  	{% endfor %}
+						  </ul>
+
+						  <div class="carousel-inner">
+						    {%for i in list1%}
+						  	<div class="carousel-item {% if i == list1[0] %} active {% endif %}">
+						      <img src="{{url_for('static',filename='/Uploaded_images/'+i)}}" alt="Laib auto" style="width: 90%; height: 800px;">
+						    </div>
+						  	{% endfor %}
+						  </div>
+						  
+						  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+						    <span class="carousel-control-prev-icon"></span>
+						  </a>
+						  <a class="carousel-control-next" href="#demo" data-slide="next">
+						    <span class="carousel-control-next-icon"></span>
+						  </a>
+						</div>
+						</div>
+				<div class="container">
+					<ul class="list-group">
+					  <li class="list-group-item"><h3 style="color: yellow"><b>Nom</b></h3>{{cars.Name}}</li>
+					  <li class="list-group-item"><h3 style="color: yellow"><b>Marque</b></h3>{{cars.Marque}}</li>
+					  <li class="list-group-item"><h3 style="color: yellow"><b>Modele</b></h3>{{cars.Modele}}</li>
+					  <li class="list-group-item"><h3 style="color: yellow"><b>Version</b></h3>{{cars.Version}}</li>
+					  <li class="list-group-item"><h3 style="color: yellow"><b>Kilométrage</b></h3>{{cars.Kilo}}</li>
+					  <li class="list-group-item"><h3 style="color: yellow"><b>Énergie</b></h3>{{cars.Energie}}</li>
+					  <li class="list-group-item"><h3 style="color: yellow"><b>Boite</b></h3>{{cars.Boite}}</li>
+					  <li class="list-group-item"><h3 style="color: yellow"><b>Description</b></h3><p style="color: black"><b>{{cars.Description}}</b></p></li>
+					</ul>
+				</div>
+			</main> <!-- .main-content -->
+
+			<footer class="site-footer">
+				<div class="container">
+					<div class="subscribe-form">
+						<form action="#">
+							<input type="text" placeholder="Enter your email to subscribe...">
+							<button type="submit"><img src="{{url_for('static',filename='images/icon-envelope-white.png') }}" alt=""></button>
+						</form>
+					</div>
+					<div class="social-links">
+						<a href="https://www.facebook.com/Laib-auto-101391698318905"><i class="fa fa-facebook"></i></a>
+						<a href="https://www.instagram.com/laibautomoto/?hl=en"><i class="fa fa-instagram"></i></a>
+						<a href="https://www.ouedkniss.com/store/?id=6748"><i class="fa fa-ouedkniss">O</i></a>
+					
+					</div>
+					<div class="copy">
+						<p>Copyright 2014 Company name. Designed by Themeezy. All rights reserved.</p>
+					</div>
+				</div>
+			</footer> <!-- .site-footer -->
+
+		</div> <!-- #site-content -->
+
+		
+
+		<script src="{{url_for('static',filename='js/jquery-1.11.1.min.js') }}"></script>
+		<script src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
+		<script src="{{url_for('static',filename='js/plugins.js') }}"></script>
+		<script src="{{url_for('static',filename='js/app.js') }}"></script>
+		
+	</body>
+<script type="text/javascript">
+	$('.carousel').carousel({
+  interval: 2000
+})
+</script>
+</html>

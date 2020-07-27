@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+		
+		<title>Laib Auto</title>
+		
+		<!-- Loading third party fonts -->
+		<link href="http://fonts.googleapis.com/css?family=Titillium+Web:300,400,700|" rel="stylesheet" type="text/css">
+		<link href="{{url_for('static',filename='fonts/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
+
+		<!-- Loading main css file -->
+		<link rel="stylesheet" href="{{url_for('static',filename='style.css') }}">
+<style type="text/css">
+	body {
+    background-color: #f7f6f6
+}
+
+.social-list {
+    display: inline-flex
+}
+
+.social-list li {
+    list-style: none;
+    margin-right: 10px
+}
+
+.maincard {
+    position: relative;
+    width: 120px;
+    height: 120px
+}
+
+.thecard {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: all 0.8s ease
+}
+
+.thecard:hover {
+    transform: rotateY(180deg)
+}
+
+.thefront {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: hidden;
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1px solid #eee;
+    box-shadow: 5px 6px 6px 2px #e9ecef;
+    padding: 45px
+}
+
+.theback {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    background-color: hidden;
+    color: #fff;
+    border-radius: 10px;
+    transform: rotateY(180deg);
+    border: 1px solid #eee;
+    box-shadow: 5px 6px 6px 2px #e9ecef;
+    padding: 4px
+}
+
+.social-text small {
+    font-size: 20px
+}
+
+@media (max-width:700px) {
+    .social-list {
+        display: block
+    }
+}
+
+.facebook {
+    background: #3b5998
+}
+
+.instagram {
+    background: #3f729b
+}
+
+.youtube {
+    background: #ff0000
+}
+
+.whatsapp {
+    background: #4dc247
+}
+
+.pinterest {
+    background: #cb2027
+}
+</style>		
+
+	</head>
+
+
+	<body class="header-collapse">
+		
+		<div id="site-content">
+			
+			<header class="site-header">
+				<div class="container">
+					<a id="branding" href="index.html">
+						<img src="{{url_for('static',filename='images/test3.png') }}" style="height: 50px,width:50px" alt="Company Logo" class="logo">
+						<h1 class="site-title" style="color: yellow">Laib<span>Auto</span></h1>
+					</a>
+
+					<nav class="main-navigation">
+						<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
+						<ul class="menu">
+							<li class="menu-item"><a href="/">Accueil</a></li>
+							<li class="menu-item"><a href="{{url_for('.OurCars')}}">Nos Voitures</a></li>
+							<li class="menu-item"><a href="{{url_for('.About')}}">A Propos</a></li>
+							<li class="menu-item"><a href="{{url_for('.ContactUs')}}">Contact</a></li>
+							<li class="menu-item"><a href="{{url_for('.login')}}">Connexion</a></li>
+						</ul>
+					</nav>
+					<nav class="mobile-navigation"></nav>
+				</div>
+			</header> <!-- .site-header -->
+
+			<main class="main-content">
+				<div class="hero hero-slider">
+					<ul class="slides">
+						<li data-bg-image="{{url_for('static',filename='dummy/img1.jpg') }}">
+							<div class="container">
+								<h2 class="slide-title" style="color:white">Laib Auto</h2>
+								
+								<a href="{{url_for('.OurCars')}}" class="button" style="background-color: yellow;color: black"><b>Plus</b></a>
+							</div>
+						</li>
+						<li data-bg-image="{{url_for('static',filename='dummy/img2.jpg') }}">
+							<div class="container">
+								<h2 class="slide-title" style="color:white">Laib Auto</h2>
+								<a href="{{url_for('.OurCars')}}}" class="button" style="background-color: yellow;color: black"><b>Plus</b></a>
+							</div>
+						</li>
+						<li data-bg-image="{{url_for('static',filename='dummy/img3.jpg') }}">
+							<div class="container">
+								<h2 class="slide-title" style="color:white">Laib Auto</h2>
+								<a href="{{url_for('.OurCars')}}" class="button" style="background-color: yellow;color: black"><b>Plus</b></a>
+							</div>
+						</li>
+					</ul>
+				</div> <!-- .hero-slider -->
+
+				<div class="fullwidth-block">
+					<div class="container">
+						<h2 class="section-title">Bienvenus sur Notre Site</h2>
+						<div class="fullwidth-block content">
+					<div class="container text-center">
+						<h3>Nos Voitures</h3>
+						<div class="row">
+							{% if cars %}
+							{% for i in cars %}
+							{% set list1=i.Photos.split(',')[0] %}
+							<div class="col-md-4">
+								<div class="card">
+  									<img class="card-img-top" src="{{url_for('static',filename='Uploaded_images/'+list1)}}" style="height: 350px;width:auto"  alt="Card image">
+  									<div class="card-body">
+  									    									</div>
+									</div>
+							</div>
+							{% endfor %}
+							{% endif %}
+						</div>
+					</div>
+				</div>
+
+						
+					</div> <!-- .container -->
+				</div> <!-- .fullwidth-block -->
+
+				<div class="fullwidth-block dark-bg" data-bg-color="#1b1b1b">
+					<div class="container">
+						<h2 class="section-title">Bienvenus sur Laib Auto</h2>
+						
+					</div> <!-- .container -->
+				</div> <!-- .fullwidth-block -->
+
+				<div class="fullwidth-block text-center">
+					<div class="container text-center">
+						<h2 class="section-title">Retrouvez Nous</h2>
+						<div class="container mt-5 mb-5 d-flex justify-content-center">
+    <ul class="social-list ">
+        <li>
+            <div class="maincard p-3">
+                <div class="thecard">
+                    <div class="thefront text-center py-4 facebook">
+                        <div class="social-icon"> <i class="fa fa-facebook fa-2x"></i> </div>
+                    </div>
+                    <div class="theback py-3 px-3 text-center facebook">
+                        <div class="social-text mt-1"><small class="font-weight-bold"><a href="https://www.facebook.com/Laib-auto-101391698318905">Facebook</a></small> </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="maincard p-3">
+                <div class="thecard">
+                    <div class="thefront text-center py-4 instagram">
+                        <div class="social-icon"> <i class="fa fa-instagram fa-2x"></i> </div>
+                    </div>
+                    <div class="theback py-3 px-3 text-center instagram">
+                        <div class="social-text mt-1">
+                         <small class="font-weight-bold">
+                         	<a href="https://www.instagram.com/laibautomoto/?hl=en"> Instagram</a>
+                         </small> 
+                     </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="maincard p-3">
+                <div class="thecard">
+                    <div class="">
+                        <div class="social-icon"><a href="https://www.ouedkniss.com/store/?id=6748"><img src="{{url_for('static',filename='images/oued.png')}}" style="height: 120px;width: 120px"></a></div>
+                    </div>
+                    
+                </div>
+            </div>
+        </li>
+        
+        
+    </ul>
+</div>
+					</div> <!-- .container -->
+				</div> <!-- .fullwidth-block -->
+
+				
+			</main> <!-- .main-content -->
+
+			<footer class="site-footer">
+				<div class="container">
+					<div class="subscribe-form">
+						
+					</div>
+					<div class="social-links">
+						<a href="https://www.facebook.com/Laib-auto-101391698318905"><i class="fa fa-facebook"></i></a>
+						<a href="https://www.instagram.com/laibautomoto/?hl=en"><i class="fa fa-instagram"></i></a>
+						<a href="https://www.ouedkniss.com/store/?id=6748"><i class="fa fa-ouedkniss">O</i></a>
+					</div>
+					<div class="copy">
+						<p>Copyright 2020 Laib Auto. Designed by Smart Box Solution. All rights reserved.</p>
+					</div>
+				</div>
+			</footer> <!-- .site-footer -->
+
+		</div> <!-- #site-content -->
+
+		
+
+		<script src="{{url_for('static',filename='js/jquery-1.11.1.min.js') }}"></script>
+		<script src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
+		<script src="{{url_for('static',filename='js/plugins.js') }}"></script>
+		<script src="{{url_for('static',filename='js/app.js') }}"></script>
+		
+	</body>
+
+</html>

@@ -1,0 +1,118 @@
+{% include "header.html" %}
+<link href="https://transloadit.edgly.net/releases/uppy/v1.6.0/uppy.min.css" rel="stylesheet">
+ 
+<section class="content">
+
+          {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+          {% for category, message in messages%}
+            <div class="alert alert-{{ category }} alert-dismissable">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              <h4>  <i class="icon fa fa-check"></i> Alert!</h4>
+              {{message}}
+            </div>
+          {% endfor %}
+          {% endif %}
+          {% endwith %}
+
+          <div class="box">
+            <div class="box-header with-border">
+              <h3 class="box-title">Ajouter une Voiture</h3>
+              <div class="box-tools pull-right">
+                <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
+                <button class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <div class="box-body">
+              <div class="row">
+            <!-- left column -->
+            <div class="col-md-12">
+              <!-- general form elements -->
+              <div class="box box-primary" style="color: #3c8dbc;">
+                <!-- form start -->
+                <form role="form" action="{{ url_for('.AddCar') }}" method="POST" enctype="multipart/form-data" >
+                  <div class="box-body">
+                    <div class="form-group">
+                      <h3><b>Nom de la Voiture</b></h3>
+                      <input type="text" value="{{cars.Name}}" class="form-control" name="name" placeholder="Entrer le nom" required="">
+                    </div>
+                  <div class="form-group">
+                      <h3><b>Marque</b></h3>
+                      <input type="text" value="{{cars.Marque}}" class="form-control" name="marque" placeholder="Entrer la Marque" required="">
+                    </div>
+                    <div class="form-group">
+                      <h3><b>Modéle</b></h3>
+                      <input type="text" class="form-control" value="{{cars.Modele}}" name="modele" placeholder="Entrer le Modéle" required="">
+                    </div>
+                     <div class="form-group">
+                      <h3><b>Version</b></h3>
+                      <input type="text" class="form-control" value="{{cars.Version}}" name="version" placeholder="Entrer la Vérson" required="">
+                    </div>
+                    <div class="form-group">
+                      <h3><b>Kilométrage</b></h3>
+                      <input type="text" class="form-control" value="{{cars.Kilo}}" name="kilo" placeholder="Entrer le Kilométrage" required="">
+                    </div>
+                    
+                  <div class="form-group">
+                      <h3><b>Energie</b></h3>
+                      <input type="text" class="form-control" value="{{cars.Energie}}" name="energie" placeholder="Entrer l'énergie'" required="">
+                    </div>
+                    <div class="form-group">
+                      <h3><b>Boite</b></h3>
+                      <input type="text" class="form-control" value="{{cars.Boite}}" name="boite" placeholder="Entrer l'énergie'" required="">
+                    </div>
+                    <div class="form-group">
+                    <h3><b>Description</b></h3>
+        <textarea class="form-control" name="description" rows="20" placeholder="Enter ..." required="">{{cars.Description}}</textarea>
+                     
+          </div>
+                  <div class="gallery" ></div>
+                  <input type="file" name="file" multiple id="gallery-photo-add">
+
+          <div class="box-footer text-center">
+                    <button type="submit" class="btn btn-lg btn-primary col-md-12">Ajouter</button>
+                  </div>
+                </form>
+              </div>
+            </div><!-- /.box-body -->
+            <!-- /.box-footer-->
+          </div><!-- /.box -->
+      </form>
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+</section>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+  $(function() {
+    // Multiple images preview in browser
+    var imagesPreview = function(input, placeToInsertImagePreview) {
+
+        if (input.files) {
+            var filesAmount = input.files.length;
+
+            for (i = 0; i < filesAmount; i++) {
+                var reader = new FileReader();
+
+                reader.onload = function(event) {
+                    $($.parseHTML("<img style='width: 70px; height: 70px'; margin: 10px;'>")).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
+                }
+
+                reader.readAsDataURL(input.files[i]);
+            }
+        }
+
+    };
+
+    $('#gallery-photo-add').on('change', function() {
+        imagesPreview(this, 'div.gallery');
+    });
+});
+</script>
+
+
+{% include "footer.html" %}

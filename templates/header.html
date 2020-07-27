@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Laib Auto | Dashboard</title>
+    <!-- Tell the browser to be responsive to screen width -->
+
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.4 -->
+    <link href="{{ url_for('static',filename='bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+    <!-- Font Awesome Icons -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!-- Ionicons -->
+    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <!-- jvectormap -->
+    <link href="{{ url_for('static',filename='plugins/jvectormap/jquery-jvectormap-1.2.2.css') }}" rel="stylesheet" type="text/css" />
+    <!-- Theme style -->
+    <link href="{{ url_for('static',filename='dist/css/AdminLTE.min.css') }}" rel="stylesheet" type="text/css" />
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link href="{{ url_for('static',filename='dist/css/skins/_all-skins.min.css') }}" rel="stylesheet" type="text/css" />
+    
+  </head>
+  <body class="skin-blue sidebar-mini">
+    <div class="wrapper">
+       
+      <header class="main-header">
+
+        <!-- Logo -->
+        <a href="{{url_for('.index')}}" class="logo">
+          <!-- mini logo for sidebar mini 50x50 pixels -->
+          <span class="logo-mini"><b>Laib Auto</b></span>
+          <!-- logo for regular state and mobile devices -->
+          <span class="logo-lg"><b>Laib Auto</b> </span>
+        </a>
+
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation">
+          <!-- Sidebar toggle button-->
+          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Toggle navigation</span>
+          </a>
+
+          <!-- Navbar Right Menu -->
+
+
+        </nav>
+      </header>
+      <!-- Left side column. contains the logo and sidebar -->
+      <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+          <!-- Sidebar user panel -->
+          <div class="user-panel">
+            <div class="pull-left image">
+              <img src="{{ url_for('static',filename='images/test2.png') }}" class="img-circle" alt="User Image" />
+            </div>
+            <div class="pull-left info">
+              <p>Laib auto</p>
+              <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+            </div>
+          </div>
+          <!-- sidebar menu: : style can be found in sidebar.less -->
+          <ul class="sidebar-menu">
+            <li class="header">MAIN NAVIGATION</li>
+
+            <li class="active treeview">
+              <a href="#">
+
+                <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+
+                <li class="active"><a href="{{ url_for('.Dashboard') }}"><i class="fa fa-circle-o"></i> Dashboard</a></li>
+                <li class="active"><a href="{{ url_for('.index') }}"><i class="fa fa-circle-o"></i> Aller sur le site</a></li>
+              </ul>
+            </li>
+            
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+                <span>Gestion des Voitures</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="{{ url_for('.AddCar') }}"><i class="fa fa-circle-o"></i> Ajouter une Voitures</a></li>
+                <li><a href="{{ url_for('.AllCars') }}"><i class="fa fa-circle-o"></i>Mes Voitures</a></li>
+              </ul>
+            </li>
+             
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-laptop"></i>
+                <span>Gestion des utilisateurs</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="{{ url_for('.AddUser') }}"><i class="fa fa-user-plus"></i> Ajouter un utilisateur</a></li>
+                <li><a href="{{ url_for('.AllUsers') }}"><i class="fa fa-users"></i> Gestion des utilisateurs</a></li>
+              </ul>
+
+            </li>
+           
+            
+            <li class="header">Déconnexion</li>
+            <li><a href="{{ url_for('.logout') }}"><i class="fa fa-circle-o text-red"></i> <span>Déconnexion</span></a></li>
+            </ul>
+        </section>
+        <!-- /.sidebar -->
+      </aside>
+
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Dashboard
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Dashboard</li>
+          </ol>
+        </section>
+        <!-- Main content -->
+      
