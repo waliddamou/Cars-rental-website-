@@ -4,7 +4,8 @@
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
-		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+				
 		<title>Laib Auto</title>
 		
 		<!-- Loading third party fonts -->
@@ -54,7 +55,6 @@
     border-radius: 10px;
     cursor: pointer;
     border: 1px solid #eee;
-    box-shadow: 5px 6px 6px 2px #e9ecef;
     padding: 45px
 }
 
@@ -68,7 +68,6 @@
     border-radius: 10px;
     transform: rotateY(180deg);
     border: 1px solid #eee;
-    box-shadow: 5px 6px 6px 2px #e9ecef;
     padding: 4px
 }
 
@@ -128,27 +127,79 @@
 						</ul>
 					</nav>
 					<nav class="mobile-navigation"></nav>
+
+
 				</div>
+
+				
 			</header> <!-- .site-header -->
 
-			<main class="main-content">
+			<main class="main-content text-center">
+
 				<div class="hero hero-slider">
+
 					<ul class="slides">
 						<li data-bg-image="{{url_for('static',filename='dummy/img1.jpg') }}">
-							<div class="container">
-								<h2 class="slide-title" style="color:white">Laib Auto</h2>
-								
+							<div class="container" style=" margin-top: 70px;">
+								<div class="row align-items-start">
+									<div class="col-md-4" style="padding: 40px;">
+									<a href="https://www.facebook.com/Laib-auto-101391698318905" style="text-align: center;background: #3B5998;color: white;font-size: 30px; padding: 27px"><i class="fa fa-facebook"></i></a>Facebook
+									
+									</div>
+									<div class="col-md-4" style="padding: 30px;">
+									<a href="https://www.instagram.com/laibautomoto/?hl=en" style="text-align: center;background: #3B5998;color: white;font-size: 30px;padding: 20px "><i class="fa fa-instagram"></i></a>instagram
+								</div>
+								<div class="col-md-4" style="padding: 20px;">
+									<a href="https://www.ouedkniss.com/store/?id=6748"><img src="{{url_for('static',filename='images/oued.png')}}" style="height: 65px;width: 65px;"></a>Ouedkniss
+									</div>
+								</div>
+								<h2 class="slide-title" style="color:white;">Laib Auto</h2>
+
 								<a href="{{url_for('.OurCars')}}" class="button" style="background-color: yellow;color: black"><b>Plus</b></a>
 							</div>
 						</li>
 						<li data-bg-image="{{url_for('static',filename='dummy/img2.jpg') }}">
-							<div class="container">
+							<div class="container" style=" margin-top: 70px;">
+								<div class="row align-items-start">
+									<div class="col-md-4" style="padding: 40px;">
+									<a href="https://www.facebook.com/Laib-auto-101391698318905" style="text-align: center;background: #3B5998;color: white;font-size: 30px; padding: 27px"><i class="fa fa-facebook"></i></a>Facebook
+									
+									</div>
+									<div class="col-md-4" style="padding: 30px;">
+									<a href="https://www.instagram.com/laibautomoto/?hl=en" style="text-align: center;background: #3B5998;color: white;font-size: 30px;padding: 20px "><i class="fa fa-instagram"></i></a>instagram
+								</div>
+								<div class="col-md-4" style="padding: 20px;">
+									<a href="https://www.ouedkniss.com/store/?id=6748"><img src="{{url_for('static',filename='images/oued.png')}}" style="height: 65px;width: 65px;"></a>Ouedkniss
+									</div>
+								</div>
+								<h2 class="slide-title" style="color:white;">Laib Auto</h2>
+
+								<a href="{{url_for('.OurCars')}}" class="button" style="background-color: yellow;color: black"><b>Plus</b></a>
+							</div>
+							<div class="container" style=" margin-top: 250px;">
 								<h2 class="slide-title" style="color:white">Laib Auto</h2>
 								<a href="{{url_for('.OurCars')}}}" class="button" style="background-color: yellow;color: black"><b>Plus</b></a>
 							</div>
 						</li>
 						<li data-bg-image="{{url_for('static',filename='dummy/img3.jpg') }}">
-							<div class="container">
+							<div class="container" style=" margin-top: 70px;">
+								<div class="row align-items-start">
+									<div class="col-md-4" style="padding: 40px;">
+									<a href="https://www.facebook.com/Laib-auto-101391698318905" style="text-align: center;background: #3B5998;color: white;font-size: 30px; padding: 27px"><i class="fa fa-facebook"></i></a>Facebook
+									
+									</div>
+									<div class="col-md-4" style="padding: 30px;">
+									<a href="https://www.instagram.com/laibautomoto/?hl=en" style="text-align: center;background: #3B5998;color: white;font-size: 30px;padding: 20px "><i class="fa fa-instagram"></i></a>instagram
+								</div>
+								<div class="col-md-4" style="padding: 20px;">
+									<a href="https://www.ouedkniss.com/store/?id=6748"><img src="{{url_for('static',filename='images/oued.png')}}" style="height: 65px;width: 65px;"></a>Ouedkniss
+									</div>
+								</div>
+								<h2 class="slide-title" style="color:white;">Laib Auto</h2>
+
+								<a href="{{url_for('.OurCars')}}" class="button" style="background-color: yellow;color: black"><b>Plus</b></a>
+							</div>
+							<div class="container" style=" margin-top: 250px;">
 								<h2 class="slide-title" style="color:white">Laib Auto</h2>
 								<a href="{{url_for('.OurCars')}}" class="button" style="background-color: yellow;color: black"><b>Plus</b></a>
 							</div>
